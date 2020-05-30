@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require("path");
 const app = express();
 const userRoutes = require("./api/routes/user");
 
@@ -11,7 +12,13 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
 
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname + '/createaccount.html'));
+});
+
+
 app.use("/", userRoutes);
+
 
 app.use((req, res, next) => {
     const error = new Error("No Request");
@@ -28,12 +35,14 @@ app.use((error, req, res, next) => {
     });
 });
 
-mongoose.connect("mongodb+srv://Gandhi:RGandhi@cluster0-hnuxn.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://rowg:Rowg152%24@rowg-rtptn.gcp.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(_result => {
 console.log("Database connected");
 let port_number = app.listen(process.env.PORT || 3000);
 app.listen(port_number);
 }).catch(err => console.log(err));
+
+require("./admin");
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
