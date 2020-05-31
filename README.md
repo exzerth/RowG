@@ -1,2 +1,2 @@
 # RowG
-Link https://renegadegandhi.github.io/RowG/.
+Link https://rowggaming.herokuapp.com/
