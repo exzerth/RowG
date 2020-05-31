@@ -1,0 +1,85 @@
+html{
+    background-color: whitesmoke;
+}
+
+body{
+    margin: 0;
+}
+
+.navbar{
+    cursor:pointer;
+    color:#FFF;
+    font-size:1.5em;
+    background-color: #7fffd4;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.brand{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 23px;
+}
+
+.main-nav{
+    float: left;
+    display: flex;
+    list-style: none;
+    font-size: 0.7em;
+    margin: 0;
+}
+
+.main-nav-right{
+    float: right;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    padding-top: 4px;
+    padding-right: 20px;
+}
+
+
+
+@media only screen and (max-width: 600px){
+    .main-nav{
+        font-size: 0.5em;
+        padding: 0;
+    }
+    
+    .brand{
+        font-family: 'Nanum Pen Script', cursive;
+        font-size: 22px;
+    }
+    
+    .main-nav-right{
+        font-size: 12px;
+        padding-top: 4px;
+        padding-right: 10px;
+    }
+}
+
+li{
+    padding: 10px;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+.container{
+    background: url("../img/landing-img.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.content{
+    text-align: center;
+    padding-top: 250px;
+    color: whitesmoke;
+    font-size: 30px;
+}
