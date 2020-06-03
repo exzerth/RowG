@@ -8,9 +8,11 @@ router.post("/signup", userController.signup);
 
 router.post("/login", userController.login);
 
-router.get("/users", userController.getAllUser);
+router.get("/users", userController.allowIfLoggedin, userController.getAllUser);
 
-router.delete("/:userId", userController.deleteUser);
+router.delete("/:userId", userController.allowIfLoggedin, userController.grantAccess, userController.deleteUser);
+
+router.get("/logout", userController.logout);
     
 
 

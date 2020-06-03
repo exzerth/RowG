@@ -2,7 +2,33 @@ const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+
+//connect mongodb
+mongoose.connect("mongodb+srv://rowg:Rowg152%24@rowg-rtptn.gcp.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true })
+.then(_result => {
+console.log("Database connected");
+let port_number = app.listen(process.env.PORT || 3000);
+app.listen(port_number);
+}).catch(err => console.log(err));
+
+//create a default admin
+require("./admin");
+
+mongoose.Promise = global.Promise;
+const db = mongoose.connection
+
+
 const app = express();
+app.use(session({
+    secret: 'gandhi',
+    resave: 'false',
+    saveUninitialized: 'true',
+    store: new MongoStore({ mongooseConnection: db })
+}));
+
 const userRoutes = require("./api/routes/user");
 
 
@@ -25,6 +51,7 @@ app.get('/login', (req, res) => {
 	res.sendFile(path.join(__dirname + '/login.html'));
 });
 
+
 //routes
 app.use("/", userRoutes);
 
@@ -44,16 +71,20 @@ app.use((error, req, res, next) => {
     });
 });
 
-//connect mongodb
-mongoose.connect("mongodb+srv://rowg:Rowg152%24@rowg-rtptn.gcp.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true })
-.then(_result => {
-console.log("Database connected");
-let port_number = app.listen(process.env.PORT || 3000);
-app.listen(port_number);
-}).catch(err => console.log(err));
 
-//create a default admin
-require("./admin");
+/*app.use(async (req, res, next) => {
+    if (req.headers["x-access-token"]) {
+     const token = req.headers["x-access-token"];
+     const { userId, exp } = await jwt.verify(token, "moregandhi");
+     // Check if token has expired
+     if (exp < Date.now().valueOf() / 1000) { 
+      return res.status(401).json({ error: "JWT token has expired, please login to obtain a new one" });
+     } 
+     res.locals.loggedInUser = await User.findById(userId); next(); 
+    } else { 
+     next(); 
+    } 
+});*/
 
 
 //handle cors errors

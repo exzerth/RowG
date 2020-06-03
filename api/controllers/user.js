@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
+const { roles } = require("../roles");
 
 exports.signup =  (req, res, next) => {
     User.findOne({email: req.body.email})
@@ -74,11 +75,14 @@ exports.login = (req, res, next) => {
                 });
             }
             if(result) {
+                req.session.email = user.email;
+                req.session.role = user.role;
+
                 const token = jwt.sign({
                     email: user.email,
                     userId: user._id,
                     role: user.role
-                }, "moregandhi", {expiresIn: "3h"});
+                }, "moregandhi", {expiresIn: "1h"});
                 User.findByIdAndUpdate(user._id, token)
                 return res.status(200).json({
                     message: "Auth Successful",
@@ -129,4 +133,74 @@ exports.deleteUser = (req, res, next) => {
             error: err
         });
     })
+}
+
+
+exports.logout = (req, res, next) => {
+    if (req.session) {
+      req.session.destroy(function(err) {
+        if(err) {
+          return next(err);
+        } else {
+          return res.status(200).json({
+              message: "Logout success"
+          });
+        }
+      });
+    }
+}
+
+/*exports.grantAccess = function(action, resource) {
+    return async (req, res, next) => {
+     try {
+        const user = new User({
+            _id: new mongoose.Types.ObjectId(),
+            fullname: req.body.fullname,
+            ign: req.body.ign,
+            email: req.body.email,
+            role: req.body.role
+        });
+      const permission = roles.can(user.role)[action](resource);
+      if (!permission.granted) {
+       return res.status(401).json({
+        error: "You don't have enough permission to perform this action"
+       });
+      }
+      next()
+     } catch (error) {
+         console.log(error);
+      next(error)
+     }
+    }
+}*/
+
+
+exports.allowIfLoggedin = async(req,res,next) => {
+    try {
+        const user = req.session.email;
+            if (user) {
+                next();
+            } else {
+                return res.status(401).json({
+                    error: "You need to be logged in"
+                });
+            }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+exports.grantAccess = async(req,res,next) => {
+    try {
+        const role = req.session.role;
+            if (role === "admin") {
+                next();
+            } else {
+                return res.status(401).json({
+                    error: "You do not have permission"
+                });
+            }
+    } catch (err) {
+        console.log(err)
+    }
 }
