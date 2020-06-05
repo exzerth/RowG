@@ -176,45 +176,178 @@ a{
     }
 }
 
+.content {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: end;
+}
+
 .main-content{
     text-align: center;
-    padding-top: 130px;
+    margin-left: 15px;
+    margin-bottom: 60px;
+    padding-top: 110px;
     padding-bottom: 130px;
     color: black;
     background-color: #a9a9a9b4;
-    height: 100px;
-    width: 310px;
-    position: absolute;
-    top: 270;
-    left: 30;
-    z-index: 1;
+    height: 15%;
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
 }
 
-.main-content h2 p {
+.main-content h2{
     margin: 0;
-    font-size: 15px;
+    font-size: 30px;
 }
 
-/*.sub-content{
+.emphasize {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 40px;
+}
+
+.main-content p{
+    margin: 0;
+    padding: 10px 15px 10px 15px;
+    font-size: 23px;
+}
+
+.sub-content{
     text-align: center;
+    margin-bottom: 60px;
     padding-top: 30px;
     padding-bottom: 30px;
     color: black;
     background-color: #a9a9a9b4;
-    height: 100px;
-    width: 520px;
-    position: absolute;
-    top: 470;
-    left: 365;
-    z-index: 1;
+    height: 15%;
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
 }
 
-.sub-content h2 p {
-    margin: 0;
-    font-size: 15px;
-}*/
+.join-us {
+    margin-bottom: 60px;
+    margin-left: 50px;
+}
+
+button {
+    text-align: center;
+    padding: 20px 65px 20px 65px;
+    background-color: rgba(241, 237, 173, 0.945);
+    border: none;
+    border-radius: 10px;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-end;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+
+    .main-content {
+        text-align: center;
+        margin-bottom: 10px;
+        padding-top: 30px;
+        padding-bottom: 25px;
+        color: black;
+        background-color: #a9a9a9b4;
+        height: 25%;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .main-content h2{
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .emphasize {
+        font-family: 'Nanum Pen Script', cursive;
+        font-size: 30px;
+    }
+
+    .main-content p{
+        margin: 0;
+        padding: 10px 15px 10px 15px;
+        font-size: 18px;
+    }
+
+    .sub-content {
+        margin: 5px 8px 10px 8px;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 40px;
+        color: black;
+        background-color: #a9a9a9b4;
+        height: 10%;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .sub-content h2{
+        margin: 0;
+        font-size: 20px;
+        padding-left: 15px;
+        text-align: left;
+    }
+
+    .sub-content p{
+        margin: 0;
+        padding: 5px;
+        font-size: 18px;
+    }
+    
+    .join-us {
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        padding: 13px 35px 13px 35px;
+        background-color: rgba(241, 237, 173, 0.945);
+        border: none;
+        border-radius: 8px;
+    }
+}
 
 .about {
     padding: 50px;
     background-color: rgba(118, 139, 166, 0.342);
+    font-family: 'Lato', sans-serif;
+}
+
+.events {
+    font-family: 'Lato', sans-serif;
+}
+
+.event-wrapper {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.event-box {
+    height: 300px;
+    background-color: burlywood;
+}
+
+footer{
+    text-align: end;
+    color: #FFF;
+}
+
+.footer-color{
+    background: #151D26;
+}
+
+footer p{
+    margin: 0;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 10px;
 }
