@@ -318,8 +318,37 @@ button {
     font-family: 'Lato', sans-serif;
 }
 
+.about h2{
+    margin: 0;
+    padding-top: 3px;
+    border-bottom: 1px thin black;
+    width: 170px;
+    border-right: 1px thin black;
+    box-shadow: 3px 3px #151D26;
+    margin-bottom: 10px;
+    color: rgb(36, 35, 35);
+}
+
+.about p{
+    margin: 0;
+    font-size: 17px;
+    color: rgb(36, 35, 35);
+}
+
 .events {
     font-family: 'Lato', sans-serif;
+}
+
+.events h2 {
+    margin-top: 15px;
+    margin-left: 50px;
+    padding-top: 3px;
+    border-bottom: 1px thin black;
+    width: 100px;
+    border-right: 1px thin black;
+    box-shadow: 3px 3px #151D26;
+    margin-bottom: 10px;
+    color: rgb(36, 35, 35);
 }
 
 .event-wrapper {
@@ -328,26 +357,58 @@ button {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     align-items: center;
     justify-content: center;
-    margin: 15px;
+    margin: 0 15px 15px 15px;
 }
 
 .event-box {
     height: 300px;
-    background-color: burlywood;
+    background-color: #bd4470;
+    border-radius: 8px;
+    color: whitesmoke;
+}
+
+.event1 h3, .event2 h3, .event3 h3, .event4 h3 {
+    margin: 0;
+    padding: 10px;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.event1 p, .event2 p, .event3 p, .event4 p {
+    margin: 0;
+    padding: 20px;
+    padding-top: 0;
+    font-size: 15px;
 }
 
 footer{
     text-align: end;
     color: #FFF;
-}
-
-.footer-color{
     background: #151D26;
+    font-family: 'Lato', sans-serif;
 }
 
-footer p{
+.footer-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.foot1 li, .foot2 li {
+    list-style: none;
     margin: 0;
-    font-weight: 300;
-    font-size: 18px;
-    padding: 10px;
+    padding-right: 30px;
+}
+
+.foot1 h5, .foot2 h5 {
+    margin: 0;
+    font-size: 17px;
+    padding-top: 10px;
+    padding-right: 30px;
+}
+
+.foot1 ul, .foot2 ul {
+    text-decoration: none;
+    margin: 0;
 }
