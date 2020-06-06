@@ -1,5 +1,5 @@
 html{
-    background-color: #081B2E;
+    background-color: #d6daf5;
 }
 
 body{
@@ -15,7 +15,7 @@ body{
 .main-nav{
     display: flex;
     list-style: none;
-    background-color: #7fffd4;
+    background-color: #151D26;;
     font-size: 0.7em;
     margin: 0;
 }
@@ -58,7 +58,7 @@ li{
 }
 
 a{
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -72,7 +72,7 @@ a{
 
 label{
     font-size: 13px;
-    color: whitesmoke;
+    color: black;
     font-weight: 800;
 }
 
@@ -102,15 +102,15 @@ label{
     border-bottom-right-radius: 12px;
     font-size: 15px;
     font-weight: 900;
-    background-color: #7fffd4;
-    color:black;
+    background-color: #151D26;
+    color: #fff;
 }
 
 @media only screen and (max-width: 420px){
 
     label{
         font-size: 13px;
-        color: whitesmoke;
+        color: black;
         font-weight: 800;
     }
     
@@ -140,8 +140,8 @@ label{
         border-bottom-right-radius: 12px;
         font-size: 13px;
         font-weight: 900;
-        background-color: #7fffd4;
-        color:black;
+        background-color: #151D26;
+        color: #fff;
     }
     
 }
@@ -149,13 +149,13 @@ label{
 .not-user{
     margin: 0;
     padding-top: 7px;
-    color: whitesmoke;
+    color: black;
     font-weight: 300;
     font-size: 14px;
 }
 
 .not-user a{
-    color: whitesmoke;
+    color: black;
     cursor: pointer;
     font-weight: 400;
     padding-left: 2px;
